@@ -4,8 +4,9 @@
   "description": "Restful Service",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
-    "start": "node index.js"
+    "test": "jest --detectOpenHandles --watchAll",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",

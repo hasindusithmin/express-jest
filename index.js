@@ -22,6 +22,7 @@ const customers = [
     }
 ];
 
+
 app.get("/", (req, res) => {
     res.send("Welcome to our REST API!");
 });
@@ -101,4 +102,4 @@ function validateCustomer(customer) {
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening to port ${port}...`));
 
-module.exports = app;
+module.exports = {app,customers};
