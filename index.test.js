@@ -82,11 +82,20 @@ const {faker} = require('@faker-js/faker')
 //     })
 // })
 
-describe('PUT /api/customers',()=>{
-    it('should return 404 if not exists',async()=>{
-        const id = 100
-        const name  = faker.name.fullName()
-        const res = await supertest(app).put(`/api/customers/${id}`).send({name})
-        assert.equal(res.statusCode,404)
+// describe('PUT /api/customers',()=>{
+//     it('should return 404 if not exists',async()=>{
+//         const id = 100
+//         const name  = faker.name.fullName()
+//         const res = await supertest(app).put(`/api/customers/${id}`).send({name})
+//         assert.equal(res.statusCode,404)
+//     })
+// })
+
+
+describe('PUT /api/customers', () => {
+    it('should return 400 for invalid body',async()=>{
+        const id = 1;
+        const res = await supertest(app).put(`/api/customers/${id}`).send({nama:'demo'})
+        assert.equal(res.statusCode,400)
     })
 })
