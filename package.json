@@ -1,0 +1,21 @@
+{
+  "name": "restful-api",
+  "version": "1.0.0",
+  "description": "Restful Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://hiran1990:itum200036@bitbucket.org/hiran1990/restful-api.git"
+  },
+  "author": "Hiran Walawage",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/hiran1990/restful-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.3.0"
+  }
+}
