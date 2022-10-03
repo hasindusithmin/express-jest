@@ -11,14 +11,24 @@ const {app,customers} = require('./index')
 //     })
 // })
 
-describe('GET /api/customer',()=>{
-    it('should return all customers',async()=>{
-        const res = await supertest(app).get('/api/customers')
+// describe('GET /api/customer',()=>{
+//     it('should return all customers',async()=>{
+//         const res = await supertest(app).get('/api/customers')
+//         assert.equal(res.statusCode,200)
+//         assert.equal(res.body.length,customers.length)
+//         res.body.forEach((customer,index)=>{
+//             assert.equal(customer.id,customers[index].id)
+//             assert.equal(customer.name,customers[index].name)
+//         })q
+//     })
+// })
+
+describe('GET /api/customer/:id',()=>{
+    it('should return a customer',async()=>{
+        const id = 1;
+        const res = await supertest(app).get(`/api/customers/${id}`)
         assert.equal(res.statusCode,200)
-        assert.equal(res.body.length,customers.length)
-        res.body.forEach((customer,index)=>{
-            assert.equal(customer.id,customers[index].id)
-            assert.equal(customer.name,customers[index].name)
-        })
+        assert.equal(res.body.id,1)
+        assert.equal(res.body.name,'Gayan')
     })
 })
