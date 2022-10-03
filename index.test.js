@@ -34,11 +34,22 @@ const {faker} = require('@faker-js/faker')
 //     })
 // })
 
-describe('POST /api/customer',()=>{
-    it('should create a new customer',async()=>{
-        const name = faker.name.fullName()
-        const res = await supertest(app).post('/api/customers').send({name})
+describe('GET /api/customers/:id',()=>{
+    it('should return a customer',async()=>{
+        const id = 1;
+        const res = await supertest(app).get(`/api/customers/${id}`)
+        const data = customers.find(({id})=>id == 1)
         assert.equal(res.statusCode,200)
-        assert.equal(customers.pop().name,name)
+        assert.equal(data.name,res.body.name)
     })
 })
+
+
+// describe('POST /api/customer',()=>{
+//     it('should create a new customer',async()=>{
+//         const name = faker.name.fullName()
+//         const res = await supertest(app).post('/api/customers').send({name})
+//         assert.equal(res.statusCode,200)
+//         assert.equal(customers.pop().name,name)
+//     })
+// })
