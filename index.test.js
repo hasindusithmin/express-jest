@@ -20,7 +20,7 @@ const {faker} = require('@faker-js/faker')
 //         res.body.forEach((customer,index)=>{
 //             assert.equal(customer.id,customers[index].id)
 //             assert.equal(customer.name,customers[index].name)
-//         })q
+//         })
 //     })
 // })
 
@@ -45,13 +45,13 @@ const {faker} = require('@faker-js/faker')
 // })
 
 
-describe('GET /api/customers/:id',()=>{
-    it('should return 404 if not exists',async()=>{
-        const id = 100
-        const res = await supertest(app).get(`/api/customers/${id}`)
-        assert.equal(res.statusCode,404)
-    })
-})
+// describe('GET /api/customers/:id',()=>{
+//     it('should return 404 if not exists',async()=>{
+//         const id = 100
+//         const res = await supertest(app).get(`/api/customers/${id}`)
+//         assert.equal(res.statusCode,404)
+//     })
+// })
 
 // describe('POST /api/customer',()=>{
 //     it('should create a new customer',async()=>{
@@ -61,3 +61,11 @@ describe('GET /api/customers/:id',()=>{
 //         assert.equal(customers.pop().name,name)
 //     })
 // })
+
+describe('POST /api/customer',()=>{
+    it('should not create a new customer and return 400',async()=>{
+        const nama = faker.name.fullName()
+        const res = await supertest(app).post('/api/customers').send({nama})
+        assert.equal(res.statusCode,400)
+    })
+})
