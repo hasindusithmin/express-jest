@@ -71,13 +71,22 @@ const {faker} = require('@faker-js/faker')
 // })
 
 
+// describe('PUT /api/customers',()=>{
+//     it('should update a customer',async()=>{
+//         const id = 2;
+//         const name = faker.name.fullName()
+//         const res = await supertest(app).put(`/api/customers/${id}`).send({name})
+//         assert.equal(res.statusCode,200)
+//         const cust = customers.find(({id})=>id==res.body.id)
+//         assert.equal(cust.name,name)
+//     })
+// })
+
 describe('PUT /api/customers',()=>{
-    it('should update a customer',async()=>{
-        const id = 2;
-        const name = faker.name.fullName()
+    it('should return 404 if not exists',async()=>{
+        const id = 100
+        const name  = faker.name.fullName()
         const res = await supertest(app).put(`/api/customers/${id}`).send({name})
-        assert.equal(res.statusCode,200)
-        const cust = customers.find(({id})=>id==res.body.id)
-        assert.equal(cust.name,name)
+        assert.equal(res.statusCode,404)
     })
 })
