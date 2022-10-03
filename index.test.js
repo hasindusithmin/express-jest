@@ -34,16 +34,24 @@ const {faker} = require('@faker-js/faker')
 //     })
 // })
 
+// describe('GET /api/customers/:id',()=>{
+//     it('should return a customer',async()=>{
+//         const id = 1;
+//         const res = await supertest(app).get(`/api/customers/${id}`)
+//         const data = customers.find(({id})=>id == 1)
+//         assert.equal(res.statusCode,200)
+//         assert.equal(data.name,res.body.name)
+//     })
+// })
+
+
 describe('GET /api/customers/:id',()=>{
-    it('should return a customer',async()=>{
-        const id = 1;
+    it('should return 404 if not exists',async()=>{
+        const id = 100
         const res = await supertest(app).get(`/api/customers/${id}`)
-        const data = customers.find(({id})=>id == 1)
-        assert.equal(res.statusCode,200)
-        assert.equal(data.name,res.body.name)
+        assert.equal(res.statusCode,404)
     })
 })
-
 
 // describe('POST /api/customer',()=>{
 //     it('should create a new customer',async()=>{
