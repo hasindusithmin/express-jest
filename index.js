@@ -51,7 +51,8 @@ app.post("/api/customers", (req, res) => {
 
     const newCustomer = {
         id: customers.length + 1,
-        name: req.body.name
+        name: req.body.name,
+        age:req.body.age
     }
 
     customers.push(newCustomer);
@@ -92,7 +93,10 @@ app.delete("/api/customers/:id", (req, res) => {
 });
 
 function validateCustomer(customer) {
-    const schema = Joi.object({ name: Joi.string() .min(3) .required()});
+    const schema = Joi.object({ 
+        name: Joi.string().min(3).required(),
+        age:Joi.number().min(1).max(100)
+    });
     
     const validation = schema.validate(customer);
     
