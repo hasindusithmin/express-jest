@@ -92,10 +92,19 @@ const {faker} = require('@faker-js/faker')
 // })
 
 
-describe('PUT /api/customers', () => {
-    it('should return 400 for invalid body',async()=>{
-        const id = 1;
-        const res = await supertest(app).put(`/api/customers/${id}`).send({nama:'demo'})
-        assert.equal(res.statusCode,400)
-    })
-})
+// describe('PUT /api/customers', () => {
+//     it('should return 400 for invalid body',async()=>{
+//         const id = 1;
+//         const res = await supertest(app).put(`/api/customers/${id}`).send({nama:'demo'})
+//         assert.equal(res.statusCode,400)
+//     })
+// })
+
+
+// describe('DELETE /api/customers/:id', () => { 
+//     it('should delete a customer',async()=>{
+//         const id = 1;
+//         const res =await supertest(app).delete(`/api/customers/${id}`)
+//         assert.equal(res.statusCode,200)
+//     })
+//  })
