@@ -74,6 +74,7 @@ app.put("/api/customers/:id", (req, res) => {
         res.status(400).send(error.details[0].message);
     }
 
+    
     customer.name = req.body.name;
 
     res.send(customer);
